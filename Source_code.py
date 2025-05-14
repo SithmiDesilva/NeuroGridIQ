@@ -12,6 +12,10 @@ def trimf(x, a, b, c):
 
     return max(min(left, right), 0.0)
 
+# Fuzzy sets for Voltage Deviation (0-100)
+def voltage_low(x): return trimf(x, 0, 0, 50)
+def voltage_medium(x): return trimf(x, 30, 50, 70)
+def voltage_high(x): return trimf(x, 60, 100, 100)
 
 
 
