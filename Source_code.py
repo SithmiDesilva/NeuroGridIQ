@@ -79,3 +79,21 @@ test_cases = [
     {"voltage": 80, "freq": 0.3, "load": 20},   # Low severity
     {"voltage": 55, "freq": 0.4, "load": 15}    # Normal operation
 ]
+
+# Run and Print Results
+print("=== Fuzzy Logic Anomaly Detection & Correction System ===\n")
+
+for i, case in enumerate(test_cases):
+    voltage = case["voltage"]
+    freq = case["freq"]
+    load = case["load"]
+    
+    severity = fuzzy_rule(voltage, freq, load)
+    action = correction_action(severity)
+    
+    print(f"Test Case {i+1}:")
+    print(f"  Voltage Deviation: {voltage}")
+    print(f"  Frequency Variation: {freq} Hz")
+    print(f"  Load Imbalance: {load}%")
+    print(f"  Anomaly Severity Level: {severity}")
+    print(f"  Suggested Action: {action}\n")
