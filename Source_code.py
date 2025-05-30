@@ -38,3 +38,19 @@ def fuzzy_rule(voltage, freq, load):
     l_unbal = load_unbalanced(load)
 
     rules = []
+
+    # Rule base with (activation_level, severity_level)
+    rules.append((min(v_high, f_unstable, l_unbal), 3))  # High
+    rules.append((min(v_med, f_unstable, l_unbal), 2))   # Moderate
+    rules.append((min(v_low, f_stable, l_bal), 0))       # No anomaly
+    rules.append((min(v_med, f_stable, l_bal), 1))       # Low
+    rules.append((min(v_low, f_unstable, l_unbal), 2))   # Moderate
+    rules.append((min(v_high, f_stable, l_bal), 2))      # Moderate
+    rules.append((min(v_high, f_unstable, l_bal), 2))    # Moderate
+    rules.append((min(v_low, f_unstable, l_bal), 1))     # Low
+    rules.append((min(v_med, f_unstable, l_bal), 2))     # Moderate
+    rules.append((min(v_high, f_stable, l_unbal), 2))    # Moderate
+
+    # Pick rule with highest activation
+    activated = max(rules, key=lambda x: x[0])
+    return activated[1]
