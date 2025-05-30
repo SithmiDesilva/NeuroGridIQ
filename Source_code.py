@@ -65,3 +65,17 @@ def correction_action(severity):
         return "Adjust Capacitor Banks for Power Factor Correction (Low Severity)"
     else:
         return "No Action Needed (Normal Operation)"
+    
+    # Simulated Test Cases
+test_cases = [
+    {"voltage": 90, "freq": 1.5, "load": 80},   # High severity
+    {"voltage": 45, "freq": 0.2, "load": 10},   # Normal operation
+    {"voltage": 65, "freq": 1.2, "load": 60},   # Moderate severity
+    {"voltage": 30, "freq": 0.8, "load": 30},   # Low severity
+    {"voltage": 75, "freq": 0.6, "load": 90},   # Moderate severity
+    {"voltage": 20, "freq": 2.0, "load": 100},  # High severity
+    {"voltage": 50, "freq": 0.1, "load": 5},     # Normal operation
+    {"voltage": 10, "freq": 1.0, "load": 50},   # Moderate severity
+    {"voltage": 80, "freq": 0.3, "load": 20},   # Low severity
+    {"voltage": 55, "freq": 0.4, "load": 15}    # Normal operation
+]
