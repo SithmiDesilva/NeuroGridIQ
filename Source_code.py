@@ -24,3 +24,17 @@ def freq_unstable(x): return trimf(x, 0.4, 1, 2)
 # Fuzzy sets for Load Imbalance (0-100%)
 def load_balanced(x): return trimf(x, 0, 0, 20)
 def load_unbalanced(x): return trimf(x, 15, 50, 100)
+
+# Fuzzy Rule Evaluation
+def fuzzy_rule(voltage, freq, load):
+    v_low = voltage_low(voltage)
+    v_med = voltage_medium(voltage)
+    v_high = voltage_high(voltage)
+
+    f_stable = freq_stable(freq)
+    f_unstable = freq_unstable(freq)
+
+    l_bal = load_balanced(load)
+    l_unbal = load_unbalanced(load)
+
+    rules = []
