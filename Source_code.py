@@ -17,5 +17,8 @@ def voltage_low(x): return trimf(x, 0, 0, 50)
 def voltage_medium(x): return trimf(x, 30, 50, 70)
 def voltage_high(x): return trimf(x, 60, 100, 100)
 
+# Fuzzy sets for Frequency Variation (in Hz deviation from 50Hz)
+def freq_stable(x): return trimf(x, 0, 0, 0.5)
+def freq_unstable(x): return trimf(x, 0.4, 1, 2)
 
 
