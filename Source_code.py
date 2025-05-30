@@ -21,4 +21,6 @@ def voltage_high(x): return trimf(x, 60, 100, 100)
 def freq_stable(x): return trimf(x, 0, 0, 0.5)
 def freq_unstable(x): return trimf(x, 0.4, 1, 2)
 
-
+# Fuzzy sets for Load Imbalance (0-100%)
+def load_balanced(x): return trimf(x, 0, 0, 20)
+def load_unbalanced(x): return trimf(x, 15, 50, 100)
