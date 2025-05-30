@@ -54,3 +54,14 @@ def fuzzy_rule(voltage, freq, load):
     # Pick rule with highest activation
     activated = max(rules, key=lambda x: x[0])
     return activated[1]
+
+# Defuzzification - Mapping severity to action
+def correction_action(severity):
+    if severity == 3:
+        return "Isolate Faulty Section (High Severity)"
+    elif severity == 2:
+        return "Perform Load Balancing / Frequency Regulation (Moderate Severity)"
+    elif severity == 1:
+        return "Adjust Capacitor Banks for Power Factor Correction (Low Severity)"
+    else:
+        return "No Action Needed (Normal Operation)"
